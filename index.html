@@ -5,15 +5,76 @@
       <meta charset="UTF-8">
       <title>RPS Battle Arena</title>
     </head>
+<body>
+    <h1>Hello World</h1> 
+  
+</body>
+
 
     <script>
+    /* The computer will randomly select from the array of  [rock, paper, scissors].
+       The player will select rock, paper, or scissors. 
+       The two selections will be compared. 
+       The winner will be announced.
 
-     function getComputerChoice()   {
-        const choices = ["Rock", "Paper", "Scissors"];
+
+       getComputerChoice is working properly and saving into computerSelection.
+       playerSelection is working properly too. 
+       The first round plays correctly.
+
+      
+*/
+      let computerScore = 0;
+      let playerScore = 0;
+
+      const choices = ["Rock","Paper","Scissors"];
+      
+      function getComputerChoice(){
         const random = Math.floor(Math.random() * choices.length);
-        console.log(choices[random]);
-}  
+        return(choices[random]);
+      }
+
+     
+     
+
+      function playRound(playerSelection, computerSelection) {
+        let result;
+        if ((playerSelection == "Rock" && computerSelection == "Rock") || 
+            (playerSelection == "Paper" && computerSelection == "Paper") ||
+            (playerSelection == "Scissors" && computerSelection == "Scissors")) {
+         result = "Its a tie!"; 
+        } else if ((playerSelection == "Rock" && computerSelection == "Scissors") ||
+                  (playerSelection == "Scissors" && computerSelection == "Paper") ||
+                  (playerSelection == "Paper" && computerSelection == "Rock")) {
+          result = "You win!";
+        } else {
+          result = "You lose!";
+        }
+        console.log(result);
+        }
+        const playerSelection = prompt("Rock, Paper, or Scissors?"); 
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+
+        function game(){
+          playRound();
+          if (result = "You lose!"){
+            computerScore++;
+          } else if (result = "You win!"){
+            playerScore++;
+          } else{
+            playRound();
+          }
+
+        }
+
+      
+       
+      
 
     </script>
 
 </html>
+
+
+
