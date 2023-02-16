@@ -29,6 +29,7 @@
 
       const choices = ["Rock","Paper","Scissors"];
       var playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase(); 
+      var computerSelection = getComputerChoice();
       
       function getComputerChoice(){
         const random = Math.floor(Math.random() * choices.length);
@@ -40,7 +41,7 @@
 
       function playRound() {
         let result;
-        if ((playerSelection == "rock" && computerSelection == "rock") || 
+        if ((playerSelection == "rock" && computerSelection == "Rock") || 
             (playerSelection == "paper" && computerSelection == "Paper") ||
             (playerSelection == "scissors" && computerSelection == "Scissors")) {
          result = "Its a tie!"; 
@@ -48,23 +49,21 @@
                   (playerSelection == "scissors" && computerSelection == "Paper") ||
                   (playerSelection == "paper" && computerSelection == "Rock")) {
           result = "You win!";
+          playerScore++;
         } else {
           result = "You lose!";
+          computerScore++;
         }
         console.log(result);
         }
         
-        var computerSelection = getComputerChoice();
+
         console.log(playRound(playerSelection, computerSelection));
 
         function game(){
           let finalScore;
           playRound();
-          if (result = "You lose!"){
-            computerScore++;
-          } else if (result = "You win!"){
-            playerScore++;
-          }
+      
           if (computerScore == 5){
             finalScore = "Computer wins the final duel!";
           } else if (playerScore == 5){
