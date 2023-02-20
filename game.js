@@ -13,9 +13,20 @@
 */
   let computerScore = 0;
   let playerScore = 0;
+  let playerSelection;
+  let computerSelection;
   const choices = ["Rock","Paper","Scissors"];
-  var playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase(); 
-  var computerSelection = getComputerChoice();
+  const buttons = document.querySelectorAll('.btn');
+  const playerPoints = document.querySelector('#playerScore');
+
+  buttons.forEach((button)=>{button.addEventListener('click',()=>{
+  
+    playerSelection = button.id;
+    game();
+    getComputerChoice()
+    })
+})
+  
   
   function getComputerChoice(){
     const random = Math.floor(Math.random() * choices.length);
@@ -24,15 +35,18 @@
 
   function playRound() {
     let result;
+    computerSelection = getComputerChoice()
     if ((playerSelection == "rock" && computerSelection == "Rock") || 
         (playerSelection == "paper" && computerSelection == "Paper") ||
-        (playerSelection == "scissors" && computerSelection == "Scissors")) {
+        (playerSelection == "scissors" && computerSelection == "Scissors")) {     
      result = "Its a tie!"; 
     } else if ((playerSelection == "rock" && computerSelection == "Scissors") ||
               (playerSelection == "scissors" && computerSelection == "Paper") ||
               (playerSelection == "paper" && computerSelection == "Rock")) {
-      result = "You win!";
+      result = "You Win!"; 
+      playerPoints.textContent = ++playerScore
       playerScore++;
+      
     } else {
       result = "You lose!";
       computerScore++;
@@ -41,16 +55,16 @@
     }
     
 
-    console.log(playRound(playerSelection, computerSelection));
+    
 
     function game(){
       let finalScore;
       playRound();
   
       if (computerScore == 5){
-        finalScore = "Computer wins the final duel!";
+       finalScore = "Computer wins the final duel!"
       } else if (playerScore == 5){
-        finalScore = "You have defeated the evil computer and saved your family!";
+        finalScore = "You have defeated the evil computer and saved your family!"
       }
       console.log(finalScore);
     }
