@@ -8,21 +8,22 @@ body{
 img{
     width: 350px;
     height: 250px;
+    border:15px dashed blue;
+    
 }
 .scoreboard{
     display:flex;
     flex-direction: row;
     font-size: 40px;
-    margin: 50px;
+    
 }
+
+
 
 .score-text{
   padding:50px;
 }
 
-.btn{
-    outline:none;
-}
 
 #output{
     font-size: 45px;
