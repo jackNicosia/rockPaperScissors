@@ -85,6 +85,10 @@ function game(){
 reset.addEventListener('click', () => {
   computerScore = 0;
   playerScore = 0;
+  winner.pause();
+  winner.currentTime = 0;
+  loser.pause();
+  loser.currentTime = 0;
   computerPoints.textContent = computerScore;
   playerPoints.textContent = playerScore;
   buttons.forEach(button => {
@@ -106,8 +110,12 @@ function stop() {
   clickAudio.pause();
 }
 
+clickAudio.volume = 0.5;
+hoverAudio.volume = 0.2;
+
 function play1(){
-  hoverAudio.play();
+  
+  hoverAudio.play(); 
 
 }
 
