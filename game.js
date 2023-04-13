@@ -48,33 +48,38 @@ function playRound() {
     result = "You Win!"; 
     playerScore++;
     playerPoints.textContent = playerScore;
-    message.style.color ="green";
+    message.style.color ="#0EB21F";
   } else {
     result = "You lose!";
     computerScore++;
     computerPoints.textContent = computerScore;
-    message.style.color ="#ab1839"
+    message.style.color ="#D71C07"
   }
   console.log(result);
   message.textContent = result;
 }
     
 
+var pictures = document.querySelector(".buttons");
+
+
 function game(){
   let finalScore;
   playRound();
 
   if (computerScore == 5){
-    finalScore = "Computer wins the final duel!"
+    pictures.style.display = "none";
+     finalScore = "Computer wins the final duel!"
     loser.play();
     message.textContent = finalScore;
     buttons.forEach(button => {
       button.disabled = true;
     });
   } else if (playerScore == 5){
+    pictures.style.display = "none";
     finalScore = "Game over, you win!"
     winner.play();
-    message.textContent = finalScore;
+    message.textContent= finalScore;
     buttons.forEach(button => {
       button.disabled = true;
     });
@@ -83,6 +88,7 @@ function game(){
 }
 
 reset.addEventListener('click', () => {
+  pictures.style.display = "initial";
   computerScore = 0;
   playerScore = 0;
   winner.pause();
