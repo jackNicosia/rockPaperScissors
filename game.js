@@ -5,12 +5,138 @@
    The winner will be announced.
 
 
-   getComputerChoice is working properly and saving into computerSelection.
-   playerSelection is working properly too. 
-   The first round plays correctly.
 
-  
+   on the final winning or losing screen i want the choices to be taken away and
 */
+
+
+let computerScore = 0;
+let playerScore = 0;
+let playerSelection;
+let computerSelection;
+const choices = ["rock","paper","scissors"];
+const buttons = document.querySelectorAll('.btn');
+const playerPoints = document.querySelector('#playerScore');
+const computerPoints = document.querySelector('#computerScore');
+const message = document.querySelector('#message');
+
+buttons.forEach((button)=>{button.addEventListener('click',()=>{
+  playerSelection = button.id;
+  game();
+  getComputerChoice()
+  })
+})
+
+
+function getComputerChoice(){
+  const random = Math.floor(Math.random() * choices.length);
+  return(choices[random]);
+}
+
+
+function playRound() {
+  let result;
+  computerSelection = getComputerChoice();
+  if ((playerSelection == "rock" && computerSelection == "rock") || 
+      (playerSelection == "paper" && computerSelection == "paper") ||
+      (playerSelection == "scissors" && computerSelection == "scissors")) {     
+    result = "Its a tie!"; 
+    message.style.color="black";
+  } else if ((playerSelection == "rock" && computerSelection == "scissors") ||
+            (playerSelection == "scissors" && computerSelection == "paper") ||
+            (playerSelection == "paper" && computerSelection == "rock")) {
+    result = "You Win!"; 
+    playerScore++;
+    playerPoints.textContent = playerScore;
+    message.style.color ="green";
+  } else {
+    result = "You lose!";
+    computerScore++;
+    computerPoints.textContent = computerScore;
+    message.style.color ="#ab1839"
+  }
+  console.log(result);
+  message.textContent = result;
+}
+    
+
+function game(){
+  let finalScore;
+  playRound();
+
+  if (computerScore == 5){
+    finalScore = "Computer wins the final duel!"
+    loser.play();
+    message.textContent = finalScore;
+    buttons.forEach(button => {
+      button.disabled = true;
+    });
+  } else if (playerScore == 5){
+    finalScore = "Game over, you win!"
+    winner.play();
+    message.textContent = finalScore;
+    buttons.forEach(button => {
+      button.disabled = true;
+    });
+  }
+  console.log(finalScore);
+}
+
+reset.addEventListener('click', () => {
+  computerScore = 0;
+  playerScore = 0;
+  computerPoints.textContent = computerScore;
+  playerPoints.textContent = playerScore;
+  buttons.forEach(button => {
+    button.disabled = false;
+  });
+});
+
+var clickAudio = document.getElementById("pop");
+var hoverAudio = document.getElementById("hover")
+var img = document.getElementsByClassName("buttons");
+var loser = document.getElementById("loser");
+var winner = document.getElementById("winner");
+
+function play0() {
+  clickAudio.play();
+}
+
+function stop() {
+  clickAudio.pause();
+}
+
+function play1(){
+  hoverAudio.play();
+
+}
+
+for (const div of buttons){
+
+div.addEventListener("click", play0)
+div.addEventListener("mouseover", play1)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
   let computerScore = 0;
   let playerScore = 0;
   let playerSelection;
@@ -19,20 +145,21 @@
   const buttons = document.querySelectorAll('.btn');
   const playerPoints = document.querySelector('#playerScore');
   const computerPoints = document.querySelector('#computerScore');
+  const message = document.querySelector('#message');
 
   buttons.forEach((button)=>{button.addEventListener('click',()=>{
-  
     playerSelection = button.id;
     game();
     getComputerChoice()
     })
 })
-  
-  
+
+
   function getComputerChoice(){
     const random = Math.floor(Math.random() * choices.length);
     return(choices[random]);
   }
+
 
   function playRound() {
     let result;
@@ -45,13 +172,15 @@
               (playerSelection == "scissors" && computerSelection == "paper") ||
               (playerSelection == "paper" && computerSelection == "rock")) {
       result = "You Win!"; 
-      playerPoints.textContent = ++playerScore;
-      
-    } else {
+      playerScore++;
+      playerPoints.textContent = playerScore;
+      } else {
       result = "You lose!";
-      computerPoints.textContent = ++computerScore;
+      computerScore++;
+      computerPoints.textContent = computerScore;
     }
     console.log(result);
+    message.textContent = result;
     }
     
 
@@ -61,24 +190,27 @@
       let finalScore;
       playRound();
     
-      
-  
-      if (computerScore == 5){
+    if (computerScore == 5){
        finalScore = "Computer wins the final duel!"
        computerScore = 0;
        playerScore = 0;
        computerPoints.textContent = computerScore;
        playerPoints.textContent = playerScore;
+       message.textContent = finalScore;
       } else if (playerScore == 5){
         finalScore = "Game over, you win!"
         computerScore = 0;
         playerScore = 0;
         computerPoints.textContent = computerScore;
         playerPoints.textContent = playerScore;
+        message.textContent = finalScore;
       }
       console.log(finalScore);
     }
-      
+    
+    */
+
+
 /*
   function endGame(){
   if (finalScore = "Game over, you win!")
@@ -134,17 +266,5 @@ for (let n=2; num % n <= 0; n++){
   alert(num % n)
 }
 */
-/*
 
-let num = prompt("Enter a number");
 
-nextPrime: 
-for (let n = 2; n <= num; n++){       //for each n if n is less or equal to num, add 1 to n
-  for(let j = 2; j < n; j++) {     //incrementing  the divisor
-   if (n % j == 0) continue nextPrime; //if not prime, skip the remaining part of the body and continue to next iteration of n
-  }
-
-  alert (n); // alert primes
-}
-
-*/
