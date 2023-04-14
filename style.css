@@ -7,6 +7,7 @@ body{
     margin-top: 50px;
     background-image: url("img/water.jpg");
     font-family: Comic Sans MS, Comic Sans, cursive;
+    cursor:default;
 }
 
 .btn{
@@ -14,11 +15,14 @@ body{
     border:none;
 }
 
-img {
+img { 
+    width: 350px;
+    height: 250px; 
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
+    cursor: crosshair;
 }
 
 img:hover {
@@ -26,10 +30,6 @@ img:hover {
 	transform: scale(1.3);
 }
 
-img{
-    width: 350px;
-    height: 250px; 
-}
 
 .scoreboard{
     display:flex;
@@ -63,23 +63,21 @@ img{
     width: 120px;
     font-weight: bolder;
     font-size: 30px;
-    background-color:#6d92c4
+    background-color:#6d92c4;
+    cursor:pointer; 
 }
 
 
 
 
 .glow {
-    font-size: 70px;
-    color: #ffffff;
-    text-align: center;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
   }
   @-webkit-keyframes glow {
     from {
-      text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 
+      text-shadow: 0 0 10px #189eeb, 0 0 20px #198dec, 0 0 30px #0ebfec, 0 0 40px #0ec3f0, 
                    0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
     }
     to {
@@ -110,3 +108,18 @@ img{
     90%{color: DodgerBlue;}
       100%{color: orange;}
   }
+
+ .spin{
+    animation-name: rotate;
+  animation-duration: 0.7s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+  
