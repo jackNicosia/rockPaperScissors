@@ -6,22 +6,20 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 10px;
     background-image: url("img/sky.jpg");
     font-family: Comic Sans MS, Comic Sans, cursive;
     background-size:cover;
 }
 
-
-
 #paper{
-  cursor:pointer;
+  cursor:crosshair;
 }
 #rock{
-  cursor:pointer;
+  cursor:crosshair;
 }
 #scissors{
-  cursor:pointer;
+  cursor:crosshair;
 }
 .body2{
   margin-top:0px;
@@ -32,11 +30,10 @@ body{
     background-color: transparent;
     border:none;
     display:none;
+  
 }
 
 img.body2 { 
-    width: 350px;
-    height: 250px; 
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
@@ -54,12 +51,12 @@ img.body2 {
 .scoreboard{
     display:flex;
     justify-content: space-between;
-    font-size: 40px;
     display:none;
 }
 
 h3{
-  font-size: 70px;
+  cursor:default;
+  font-size: 40px;
 }
 
 .scoreboard h3:first-child {
@@ -93,12 +90,15 @@ h3{
     display:none;
 }
 
+
 h1{
+  cursor:default;
   display:none;
-  font-size:100px ;
+  font-size:80px ;
 }
 
 button#startButton{
+  margin-top: 75px;
   display:flex;
   height: 80px;
   width:  240px;
@@ -121,16 +121,19 @@ button#startButton:hover{
 }
 
 .intro{
-  color:#189eeb;
+  cursor:default;
+  font-weight: bolder;
+  color:#eb18bd;
   font-size: 60px;
   margin-top: 10px;
   text-align: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 300px;
 }
 
 a{
   cursor:pointer;
+  color:#1cc6e4;
 }
 
 
@@ -151,9 +154,16 @@ a{
     }
   }
 
+  img{
+    width:300px;
+    height:350px;
+  }
+
 
 
   
+
+  /* will use this later
 .rainbow {
   
     animation: rainbow 5s infinite; 
@@ -193,3 +203,4 @@ a{
     display:none;
 }
 
+*/
