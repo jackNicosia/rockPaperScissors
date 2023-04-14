@@ -19,6 +19,11 @@ const buttons = document.querySelectorAll('.btn');
 const playerPoints = document.querySelector('#playerScore');
 const computerPoints = document.querySelector('#computerScore');
 const message = document.querySelector('#message');
+const pictures = document.querySelector(".buttons");
+const title = document.querySelector("h1");
+const theirScore = document.querySelector("#theirScore");
+const yourScore = document.querySelector("#yourScore");
+const body = document.querySelector("body");
 
 buttons.forEach((button)=>{button.addEventListener('click',()=>{
   playerSelection = button.id;
@@ -46,6 +51,10 @@ function playRound() {
             (playerSelection == "scissors" && computerSelection == "paper") ||
             (playerSelection == "paper" && computerSelection == "rock")) {
     result = "You Won!";
+    playerPoints.classList.add("spin");
+    title.classList.remove("glow");
+    yourScore.classList.add("glow");
+    theirScore.classList.remove("glow");
     lvlUp.load();
     lvlUp.play();
     playerScore++;
@@ -53,6 +62,9 @@ function playRound() {
     message.style.color ="#0EB21F";
   } else {
     result = "You lost!";
+    title.classList.remove("glow");
+    theirScore.classList.add("glow");
+    yourScore.classList.remove("glow");
     lvlDown.load();
     lvlDown.play();
     computerScore++;
@@ -64,7 +76,7 @@ function playRound() {
 }
     
 
-var pictures = document.querySelector(".buttons");
+
 
 
 function game(){
@@ -94,6 +106,9 @@ function game(){
 }
 
 reset.addEventListener('click', () => {
+  title.classList.add("glow");
+  yourScore.classList.remove("glow");
+  theirScore.classList.remove("glow");
   pictures.style.display = "initial";
   winPic.style.display = "none";
   losePic.style.display = "none";
@@ -149,6 +164,39 @@ div.addEventListener("mouseover", play1)
 
 winPic.style.display = "none";
 losePic.style.display = "none";
+
+
+
+
+
+
+
+const startButton = document.querySelector('#startButton');
+
+startButton.addEventListener('click', () => {
+
+
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.style.display = 'initial';
+    reset.style.display="initial";
+    body.classList.add("body2");
+    startButton.style.display="none";
+    intro.style.display="none";
+    title.style.display="initial";
+
+
+
+  });
+  const scoreboard = document.querySelector('.scoreboard');
+  scoreboard.style.display = 'flex';
+});
+
+const intro = document.querySelector(".intro");
+
+
+
+
 
 
 
