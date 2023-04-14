@@ -8,24 +8,26 @@
       <link rel="stylesheet" href="style.css">
     </head>
 <body>
-    <h1>RPS Battle Arena</h1> 
+    <h1 class="glow">RPS Battle Arena</h1> 
     <div class="buttons">
       <button class="btn"id="paper"><img src="img/paper.png" alt="paper image"/></button>
       <button class="btn"id="rock"><img src="img/rock.png" alt="rock image"/></button>
       <button class="btn"id="scissors"><img src="img/scissors.png" alt="scissors image"/></button>
       <audio id="pop" source src="sounds/pop.mp3"></audio>
-      <audio id="hover" source src="sounds/start.mp3"></audio>
+      <audio id="hover" source src="sounds/kingdomheartsselect.mp3"></audio>
       <audio id="winner" source src="sounds/celebratesnip.mp3"></audio>
-      <audio id="loser" source src="sounds/mozartsnip.mp3.mp3"></audio>
+      <audio id="loser" source src="sounds/mozartsnip.mp3"></audio>
+      <audio id="lvlUp" source src="sounds/itemget.mp3"></audio>
+      <audio id="lvlDown" source src="sounds/rsdmg.mp3"></audio>
   </div>
   <div class="scoreboard">
 
     <h3>Player Score: <span id="playerScore">0</span></h3>
     <h3>Computer Score: <span id="computerScore">0</span></h3>
   </div>
-  <div id="message">
-    <p class="rainbow rainbow_text_animated"></p>
-  </div>
+  <img id ="winPic" source src="img/happy.gif" alt="a happy dog"/>
+  <img id="losePic" source src="img/ulost.gif" alt="at least you tried"/>
+  <div id="message"></div>
 
 
   <button id ="reset">RESET</button>

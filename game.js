@@ -45,12 +45,16 @@ function playRound() {
   } else if ((playerSelection == "rock" && computerSelection == "scissors") ||
             (playerSelection == "scissors" && computerSelection == "paper") ||
             (playerSelection == "paper" && computerSelection == "rock")) {
-    result = "You Win!"; 
+    result = "You Won!";
+    lvlUp.load();
+    lvlUp.play();
     playerScore++;
     playerPoints.textContent = playerScore;
     message.style.color ="#0EB21F";
   } else {
-    result = "You lose!";
+    result = "You lost!";
+    lvlDown.load();
+    lvlDown.play();
     computerScore++;
     computerPoints.textContent = computerScore;
     message.style.color ="#D71C07"
@@ -71,6 +75,7 @@ function game(){
     pictures.style.display = "none";
      finalScore = "Computer wins the final duel!"
     loser.play();
+    losePic.style.display = "initial"
     message.textContent = finalScore;
     buttons.forEach(button => {
       button.disabled = true;
@@ -79,6 +84,7 @@ function game(){
     pictures.style.display = "none";
     finalScore = "Game over, you win!"
     winner.play();
+    winPic.style.display = "initial";
     message.textContent= finalScore;
     buttons.forEach(button => {
       button.disabled = true;
@@ -89,6 +95,9 @@ function game(){
 
 reset.addEventListener('click', () => {
   pictures.style.display = "initial";
+  winPic.style.display = "none";
+  losePic.style.display = "none";
+  message.textContent= null;
   computerScore = 0;
   playerScore = 0;
   winner.pause();
@@ -107,8 +116,11 @@ var hoverAudio = document.getElementById("hover")
 var img = document.getElementsByClassName("buttons");
 var loser = document.getElementById("loser");
 var winner = document.getElementById("winner");
+var lvlUp = document.getElementById("lvlUp");
+var lvlDown = document.getElementById("lvlDown");
 
 function play0() {
+  clickAudio.load();
   clickAudio.play();
 }
 
@@ -116,11 +128,14 @@ function stop() {
   clickAudio.pause();
 }
 
+lvlUp.duration = 0.5;
+lvlDown.volume = 1;
+lvlUp.volume = 0.5;
 clickAudio.volume = 0.5;
 hoverAudio.volume = 0.2;
 
 function play1(){
-  
+  hoverAudio.load();
   hoverAudio.play(); 
 
 }
@@ -132,7 +147,8 @@ div.addEventListener("mouseover", play1)
 
 }
 
-
+winPic.style.display = "none";
+losePic.style.display = "none";
 
 
 
