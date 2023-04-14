@@ -23,6 +23,7 @@ const pictures = document.querySelector(".buttons");
 const title = document.querySelector("h1");
 const theirScore = document.querySelector("#theirScore");
 const yourScore = document.querySelector("#yourScore");
+const body = document.querySelector("body");
 
 buttons.forEach((button)=>{button.addEventListener('click',()=>{
   playerSelection = button.id;
@@ -163,6 +164,39 @@ div.addEventListener("mouseover", play1)
 
 winPic.style.display = "none";
 losePic.style.display = "none";
+
+
+
+
+
+
+
+const startButton = document.querySelector('#startButton');
+
+startButton.addEventListener('click', () => {
+
+
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.style.display = 'initial';
+    reset.style.display="initial";
+    body.classList.add("body2");
+    startButton.style.display="none";
+    intro.style.display="none";
+    title.style.display="initial";
+
+
+
+  });
+  const scoreboard = document.querySelector('.scoreboard');
+  scoreboard.style.display = 'flex';
+});
+
+const intro = document.querySelector(".intro");
+
+
+
+
 
 
 
