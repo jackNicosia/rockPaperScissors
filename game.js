@@ -46,6 +46,9 @@ function playRound() {
       (playerSelection == "paper" && computerSelection == "paper") ||
       (playerSelection == "scissors" && computerSelection == "scissors")) {     
     result = "Its a tie!"; 
+    title.classList.add("glow");
+    yourScore.classList.remove("glow");
+    theirScore.classList.remove("glow");
     message.style.color="black";
   } else if ((playerSelection == "rock" && computerSelection == "scissors") ||
             (playerSelection == "scissors" && computerSelection == "paper") ||
@@ -87,7 +90,7 @@ function game(){
     pictures.style.display = "none";
      finalScore = "Computer wins the final duel!"
     loser.play();
-    losePic.style.display = "initial"
+    losePic.style.display = "inherit"
     message.textContent = finalScore;
     buttons.forEach(button => {
       button.disabled = true;
@@ -96,7 +99,7 @@ function game(){
     pictures.style.display = "none";
     finalScore = "Game over, you win!"
     winner.play();
-    winPic.style.display = "initial";
+    winPic.style.display = "inherit";
     message.textContent= finalScore;
     buttons.forEach(button => {
       button.disabled = true;
@@ -109,7 +112,7 @@ reset.addEventListener('click', () => {
   title.classList.add("glow");
   yourScore.classList.remove("glow");
   theirScore.classList.remove("glow");
-  pictures.style.display = "initial";
+  pictures.style.display = "inherit";
   winPic.style.display = "none";
   losePic.style.display = "none";
   message.textContent= null;
@@ -133,6 +136,7 @@ var loser = document.getElementById("loser");
 var winner = document.getElementById("winner");
 var lvlUp = document.getElementById("lvlUp");
 var lvlDown = document.getElementById("lvlDown");
+var startSound = document.getElementById("startSound");
 
 function play0() {
   clickAudio.load();
@@ -165,12 +169,6 @@ div.addEventListener("mouseover", play1)
 winPic.style.display = "none";
 losePic.style.display = "none";
 
-
-
-
-
-
-
 const startButton = document.querySelector('#startButton');
 
 startButton.addEventListener('click', () => {
@@ -184,6 +182,7 @@ startButton.addEventListener('click', () => {
     startButton.style.display="none";
     intro.style.display="none";
     title.style.display="initial";
+    startSound.play();
 
 
 
@@ -193,7 +192,6 @@ startButton.addEventListener('click', () => {
 });
 
 const intro = document.querySelector(".intro");
-
 
 
 
