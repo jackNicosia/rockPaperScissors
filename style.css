@@ -10,6 +10,11 @@ body{
     background-image: url("img/sky.jpg");
     font-family: Comic Sans MS, Comic Sans, cursive;
     background-size:cover;
+    text-align: center;
+}
+
+div{
+  display:flex;
 }
 
 #paper{
@@ -49,6 +54,8 @@ img.body2 {
 
 
 .scoreboard{
+    margin-left:1px;
+    margin-right:1px;
     display:flex;
     justify-content: space-between;
     display:none;
@@ -127,13 +134,32 @@ button#startButton:hover{
   font-size: 60px;
   margin-top: 10px;
   text-align: center;
+  width:100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 5px solid;
   justify-content: center;
   margin-top: 300px;
+  animation:
+    typing 2s steps(60),
+    cursor .4s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  50% { border-color: transparent}
+}
+
+@keyframes typing {
+    from { width: 0 }
 }
 
 a{
   cursor:pointer;
   color:#1cc6e4;
+}
+
+.introContainer{
+  display:inline-block; 
 }
 
 

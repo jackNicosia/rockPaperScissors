@@ -6,7 +6,7 @@
 
 
 
-   on the final winning or losing screen i want the choices to be taken away and
+   I would like the intro screen to have some animation and for the entire website to be responsive to different sized devices.
 */
 
 
@@ -31,6 +31,7 @@ buttons.forEach((button)=>{button.addEventListener('click',()=>{
   getComputerChoice()
   })
 })
+
 
 
 function getComputerChoice(){
@@ -163,8 +164,14 @@ for (const div of buttons){
 
 div.addEventListener("click", play0)
 div.addEventListener("mouseover", play1)
+div.addEventListener("mouseout", stop0)
 
 }
+
+function stop0(){
+  hoverAudio.pause();
+}
+
 
 winPic.style.display = "none";
 losePic.style.display = "none";
@@ -192,10 +199,6 @@ startButton.addEventListener('click', () => {
 });
 
 const intro = document.querySelector(".intro");
-
-
-
-
 
 
 
